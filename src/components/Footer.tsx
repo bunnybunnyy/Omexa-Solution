@@ -1,40 +1,41 @@
-import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Dribbble } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const links = {
-    company: [
+    studio: [
       { name: "About", href: "#about" },
+      { name: "Team", href: "#team" },
       { name: "Careers", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Press", href: "#" },
+      { name: "Contact", href: "#contact" },
     ],
     services: [
+      { name: "Brand Identity", href: "#services" },
       { name: "Web Development", href: "#services" },
-      { name: "Brand Strategy", href: "#services" },
-      { name: "UI/UX Design", href: "#services" },
-      { name: "Digital Marketing", href: "#services" },
+      { name: "Digital Strategy", href: "#services" },
+      { name: "Creative Direction", href: "#services" },
     ],
     social: [
       { icon: Twitter, href: "#", label: "Twitter" },
       { icon: Linkedin, href: "#", label: "LinkedIn" },
       { icon: Instagram, href: "#", label: "Instagram" },
-      { icon: Github, href: "#", label: "GitHub" },
+      { icon: Dribbble, href: "#", label: "Dribbble" },
     ],
   };
 
   return (
-    <footer className="border-t border-border/50 bg-card/30">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="border-t border-border/50">
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <a href="#" className="font-display text-2xl font-bold text-foreground inline-block mb-4">
-              NEXUS<span className="text-gradient">.</span>
+          <div className="md:col-span-4">
+            <a href="#" className="font-display text-3xl font-medium text-foreground inline-block mb-6">
+              Atelier<span className="text-primary">.</span>
             </a>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Crafting exceptional digital experiences that drive business growth.
+            <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm">
+              A creative studio crafting timeless digital experiences for 
+              brands that dare to stand out.
             </p>
             <div className="flex gap-3">
               {links.social.map((item) => (
@@ -42,7 +43,7 @@ const Footer = () => {
                   key={item.label}
                   href={item.href}
                   aria-label={item.label}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
+                  className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-300"
                 >
                   <item.icon className="w-5 h-5" />
                 </a>
@@ -50,11 +51,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-3">
-              {links.company.map((link) => (
+          {/* Links */}
+          <div className="md:col-span-2 md:col-start-6">
+            <h4 className="font-display text-sm font-medium text-foreground mb-6 tracking-wide">
+              Studio
+            </h4>
+            <ul className="space-y-4">
+              {links.studio.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -67,10 +70,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Links */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Services</h4>
-            <ul className="space-y-3">
+          <div className="md:col-span-2">
+            <h4 className="font-display text-sm font-medium text-foreground mb-6 tracking-wide">
+              Services
+            </h4>
+            <ul className="space-y-4">
               {links.services.map((link) => (
                 <li key={link.name}>
                   <a
@@ -85,38 +89,40 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h4 className="font-display font-semibold text-foreground mb-4">Stay Updated</h4>
+          <div className="md:col-span-3">
+            <h4 className="font-display text-sm font-medium text-foreground mb-6 tracking-wide">
+              Newsletter
+            </h4>
             <p className="text-muted-foreground text-sm mb-4">
-              Subscribe to our newsletter for the latest updates.
+              Subscribe for design insights and studio updates.
             </p>
             <form className="flex gap-2">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                placeholder="Your email"
+                className="flex-1 px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
               />
               <button
                 type="submit"
-                className="px-4 py-2 rounded-lg bg-gradient-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all"
+                className="px-5 py-3 rounded-xl bg-gradient-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all"
               >
-                Subscribe
+                Join
               </button>
             </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Bottom */}
+        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Nexus Agency. All rights reserved.
+            © {currentYear} Atelier Studio. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
+          <div className="flex gap-8 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
+              Privacy
             </a>
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
+              Terms
             </a>
           </div>
         </div>

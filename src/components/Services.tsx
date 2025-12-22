@@ -1,69 +1,71 @@
-import { Code, Palette, Megaphone, Zap, Globe, Shield } from "lucide-react";
+import { Palette, Code, Megaphone, Sparkles } from "lucide-react";
 
 const services = [
   {
     icon: Palette,
-    title: "Brand Strategy",
-    description: "We craft distinctive brand identities that resonate with your audience and stand out in the market.",
+    number: "01",
+    title: "Brand Identity",
+    description: "Strategic brand development that captures essence and creates lasting recognition in the marketplace.",
   },
   {
     icon: Code,
+    number: "02",
     title: "Web Development",
-    description: "Custom websites and web applications built with cutting-edge technology and optimized for performance.",
+    description: "Bespoke websites and applications built with precision, performance, and scalability in mind.",
   },
   {
     icon: Megaphone,
-    title: "Digital Marketing",
-    description: "Data-driven marketing strategies that amplify your reach and convert visitors into customers.",
+    number: "03",
+    title: "Digital Strategy",
+    description: "Data-informed strategies that amplify your presence and convert audiences into loyal customers.",
   },
   {
-    icon: Zap,
-    title: "UI/UX Design",
-    description: "Intuitive and beautiful interfaces that delight users and enhance engagement with your brand.",
-  },
-  {
-    icon: Globe,
-    title: "E-Commerce",
-    description: "Scalable online stores with seamless checkout experiences that drive sales and growth.",
-  },
-  {
-    icon: Shield,
-    title: "Maintenance & Support",
-    description: "Ongoing support and maintenance to keep your digital presence secure and up-to-date.",
+    icon: Sparkles,
+    number: "04",
+    title: "Creative Direction",
+    description: "Visionary creative guidance that ensures consistency and excellence across all touchpoints.",
   },
 ];
 
 const Services = () => {
   return (
     <section id="services" className="py-32 relative">
-      {/* Background Accent */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-            What We Do
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Services That Drive <span className="text-gradient">Growth</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            From concept to launch, we provide end-to-end digital solutions 
-            tailored to your unique business needs.
-          </p>
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div>
+            <span className="text-primary font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
+              What We Do
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+              Services Designed for <em className="not-italic text-gradient">Excellence</em>
+            </h2>
+          </div>
+          <div className="flex items-end">
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              We offer a comprehensive suite of services that transform ideas 
+              into impactful digital realities. Each project is approached with 
+              meticulous attention to detail.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-glow/20"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group p-8 md:p-10 rounded-3xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-primary" />
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-warm flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                  <service.icon className="w-6 h-6 text-primary" />
+                </div>
+                <span className="font-display text-5xl text-border group-hover:text-primary/20 transition-colors duration-300">
+                  {service.number}
+                </span>
               </div>
-              <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-gradient transition-all duration-300">
+              <h3 className="font-display text-2xl font-medium mb-4 group-hover:text-gradient transition-all duration-300">
                 {service.title}
               </h3>
               <p className="text-muted-foreground leading-relaxed">

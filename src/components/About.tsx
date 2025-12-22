@@ -1,76 +1,76 @@
-import { CheckCircle } from "lucide-react";
+const stats = [
+  { value: "12+", label: "Years Experience" },
+  { value: "150+", label: "Projects Delivered" },
+  { value: "40+", label: "Awards Won" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const About = () => {
-  const highlights = [
-    "Award-winning design team",
-    "Agile development process",
-    "24/7 dedicated support",
-    "Global client base",
-  ];
-
   return (
-    <section id="about" className="py-32 relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-32 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-warm opacity-30" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-              About Us
+            <span className="text-primary font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
+              Our Story
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              We're a Team of <span className="text-gradient">Passionate</span> Creators
+            <h2 className="font-display text-4xl md:text-5xl font-medium mb-8 leading-tight">
+              Where <em className="not-italic text-gradient">Passion</em> Meets Purpose
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Founded in 2012, Nexus has grown from a small studio into a full-service 
-              digital agency. We combine creativity with technology to deliver 
-              exceptional results for businesses of all sizes.
-            </p>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Our diverse team of designers, developers, and strategists work 
-              collaboratively to transform ideas into impactful digital experiences.
-            </p>
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+              <p>
+                Founded in 2012, Atelier began as a small studio with a big vision: 
+                to create digital experiences that truly matter. Today, we're a 
+                full-service creative agency trusted by brands worldwide.
+              </p>
+              <p>
+                We believe great design is invisible—it feels effortless while 
+                achieving remarkable results. Every pixel, every line of code, 
+                every strategic decision is made with intention.
+              </p>
+            </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
+            {/* Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-12 pt-12 border-t border-border/50">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-display text-3xl md:text-4xl font-medium text-gradient mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-muted-foreground text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Right Visual */}
-          <div className="relative">
-            <div className="aspect-square rounded-3xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop"
-                alt="Our Team"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-            </div>
-            
-            {/* Floating Card */}
-            <div className="absolute -bottom-8 -left-8 glass p-6 rounded-2xl max-w-xs">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-primary border-2 border-card"
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">+20 team members</span>
+          <div className="relative lg:pl-12">
+            <div className="relative">
+              {/* Main Image */}
+              <div className="aspect-[3/4] rounded-3xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=800&fit=crop"
+                  alt="Our Studio"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <p className="text-foreground font-medium">
-                Working together to create something amazing
-              </p>
-            </div>
+              
+              {/* Floating Card */}
+              <div className="absolute -bottom-8 -left-8 glass-warm p-6 rounded-2xl max-w-[280px]">
+                <p className="font-display text-lg font-medium text-foreground mb-2">
+                  "Design is not just what it looks like. Design is how it works."
+                </p>
+                <p className="text-primary text-sm">— Our Philosophy</p>
+              </div>
 
-            {/* Decorative Element */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 border-2 border-primary/20 rounded-full" />
+              {/* Decorative */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/20 rounded-full" />
+              <div className="absolute -top-3 -right-3 w-24 h-24 border border-primary/10 rounded-full" />
+            </div>
           </div>
         </div>
       </div>
