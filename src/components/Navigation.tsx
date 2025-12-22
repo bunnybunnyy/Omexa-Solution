@@ -17,6 +17,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Work", href: "#work" },
+    { name: "Team", href: "#team" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
@@ -28,25 +29,26 @@ const Navigation = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="font-display text-2xl font-bold text-foreground">
-          NEXUS<span className="text-gradient">.</span>
+        <a href="#" className="font-display text-2xl font-medium text-foreground tracking-tight">
+          Atelier<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm font-medium"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
             >
               {link.name}
             </a>
           ))}
-          <Button variant="hero" size="sm">
-            Start Project
-          </Button>
         </div>
+
+        <Button variant="hero" size="sm" className="hidden md:flex">
+          Get Started
+        </Button>
 
         {/* Mobile Menu Button */}
         <button
@@ -59,20 +61,20 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass mt-4 mx-6 rounded-xl p-6 animate-fade-in">
+        <div className="md:hidden glass mt-4 mx-6 rounded-2xl p-6 animate-scale-in">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-lg font-medium"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </a>
             ))}
             <Button variant="hero" className="mt-4">
-              Start Project
+              Get Started
             </Button>
           </div>
         </div>
