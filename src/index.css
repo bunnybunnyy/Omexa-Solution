@@ -2,62 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 40% 98%;
+    /* Light Theme - Enhanced */
+    --background: 0 0% 95%; /* pure white background */
+    --foreground: 220 15% 8%; /* softer dark text */
 
-    --card: 220 18% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 8%;
 
-    --popover: 220 18% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 8%;
 
-    --primary: 175 80% 50%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 175 75% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 220 15% 8%;
 
-    --muted: 220 15% 12%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 210 10% 97%;
+    --muted-foreground: 220 10% 35%;
 
-    --accent: 175 80% 50%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 175 75% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 175 80% 50%;
+    --border: 210 15% 92%;
+    --input: 210 15% 95%;
+    --ring: 175 75% 45%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%), hsl(195 80% 45%));
-    --gradient-glow: radial-gradient(circle at center, hsl(175 80% 50% / 0.15), transparent 70%);
-    --gradient-card: linear-gradient(180deg, hsl(220 18% 10%), hsl(220 18% 6%));
-    --shadow-glow: 0 0 60px hsl(175 80% 50% / 0.3);
-    --shadow-card: 0 25px 50px -12px hsl(220 20% 2% / 0.5);
+    /* Custom tokens - Enhanced */
+    --gradient-primary: linear-gradient(135deg, hsl(175 75% 45%), hsl(195 75% 40%));
+    --gradient-glow: radial-gradient(circle at center, hsl(175 75% 45% / 0.12), transparent 70%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 99%));
+    --shadow-glow: 0 0 80px hsl(175 75% 45% / 0.25);
+    --shadow-card: 0 20px 60px -15px hsl(0 0% 0% / 0.08);
 
-    --sidebar-background: 220 18% 6%;
-    --sidebar-foreground: 210 40% 98%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 4%;
     --sidebar-primary: 175 80% 50%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 15% 12%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 15% 18%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 20% 90%;
+    --sidebar-accent-foreground: 220 20% 4%;
+    --sidebar-border: 210 20% 90%;
     --sidebar-ring: 175 80% 50%;
   }
 
+  /* Dark mode can now override if needed */
   .dark {
     --background: 220 20% 4%;
     --foreground: 210 40% 98%;
   }
 }
+
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 
 @layer base {
   * {
@@ -67,10 +78,30 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  p, span, a, li {
+    font-weight: 300;
+  }
+
+  .font-medium {
+    font-weight: 400;
+  }
+
+  .font-semibold {
+    font-weight: 500;
+  }
+
+  .font-bold {
+    font-weight: 600;
   }
 }
 
@@ -93,7 +124,7 @@
   }
 
   .glass {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+    @apply bg-card/70 backdrop-blur-xl border border-border/40 shadow-sm;
   }
 
   .animate-float {
@@ -137,6 +168,100 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes gradientFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+  }
+  33% { 
+    transform: translate(-45%, -55%) scale(1.1) rotate(120deg); 
+  }
+  66% { 
+    transform: translate(-55%, -45%) scale(0.9) rotate(240deg); 
+  }
+}
+
+@keyframes dotMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes waveShift {
+  0%, 100% { 
+    background-position: 0% 0%;
+    opacity: 0.03;
+  }
+  50% { 
+    background-position: 100% 100%;
+    opacity: 0.05;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.3; 
+  }
+  25% { 
+    transform: translate(15px, -20px) scale(1.2); 
+    opacity: 0.5; 
+  }
+  50% { 
+    transform: translate(-12px, 18px) scale(1.4); 
+    opacity: 0.6; 
+  }
+  75% { 
+    transform: translate(8px, -10px) scale(1.1); 
+    opacity: 0.4; 
+  }
+}
+
+@keyframes blobFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+  }
+  33% { 
+    transform: translate(-45%, -55%) scale(1.15) rotate(120deg); 
+  }
+  66% { 
+    transform: translate(-55%, -45%) scale(0.9) rotate(240deg); 
+  }
+}
+
+@keyframes dotPattern {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { 
+    background-position: 0% 0%;
+    opacity: 0.02;
+  }
+  50% { 
+    background-position: 100% 100%;
+    opacity: 0.04;
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.4; 
+  }
+  25% { 
+    transform: translate(20px, -25px) scale(1.3); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translate(-15px, 20px) scale(1.5); 
+    opacity: 0.8; 
+  }
+  75% { 
+    transform: translate(10px, -10px) scale(1.2); 
+    opacity: 0.5; 
+  }
 }
 
 /* Smooth scroll */

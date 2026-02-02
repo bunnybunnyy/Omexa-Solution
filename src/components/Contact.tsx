@@ -1,62 +1,97 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-30" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+    <section id="contact" className="py-24 relative overflow-hidden  bg-white">
+      {/* Minimal Background */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+          <div className="text-center mb-12">
+            <span className="text-primary font-normal text-xs tracking-wider uppercase mb-3 block font-light">
               Get In Touch
             </span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Let's Build Something <span className="text-gradient">Great</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 tracking-tight">
+              Let's Build Something <span className="text-gradient font-bold">Great</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ready to transform your digital presence? We'd love to hear about your project 
-              and explore how we can help bring your vision to life.
+            <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+              Ready to transform your digital presence? We'd love to hear about your project.
             </p>
           </div>
 
-          {/* Contact Grid */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              { icon: Mail, label: "Email Us", value: "hello@nexus.agency" },
-              { icon: Phone, label: "Call Us", value: "+1 (555) 123-4567" },
-              { icon: MapPin, label: "Visit Us", value: "New York, NY" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 text-center group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-muted-foreground text-sm mb-1">{item.label}</p>
-                <p className="text-foreground font-medium">{item.value}</p>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Left Side - Contact Info */}
+            <div className="space-y-4">
+              {/* Contact Cards */}
+              <div className="grid gap-4">
+                {[
+                  { 
+                    icon: Mail, 
+                    label: "Email", 
+                    value: "contacttechexa@gmail.com",
+                  },
+                  { 
+                    icon: Phone, 
+                    label: "Phone", 
+                    value: "+92-3355812911",
+                  },
+                  { 
+                    icon: MapPin, 
+                    label: "Location", 
+                    value: "B8 1QW, Poplar Dr, Saltley, Birmingham, United Kingdom.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="group p-4 rounded-xl bg-card/50 border border-border/30 hover:border-primary/40 transition-all duration-300 backdrop-blur-sm"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors flex-shrink-0">
+                        <item.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-muted-foreground text-xs mb-1 font-light">{item.label}</p>
+                        <p className="text-foreground text-sm font-medium">{item.value}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          {/* CTA */}
-          <div className="glass rounded-3xl p-8 md:p-12 text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Schedule a free consultation with our team to discuss your goals 
-              and how we can help achieve them.
-            </p>
-            <Button variant="hero" size="xl">
-              Schedule a Call
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+              {/* Response Time Card */}
+              <div className="p-4 rounded-xl bg-card/50 border border-border/30 backdrop-blur-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-medium mb-1 text-sm">Response Time</h3>
+                    <p className="text-muted-foreground text-xs font-light leading-relaxed">
+                      We typically respond within 24 hours during business days.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Contact Form */}
+            <div className="lg:sticky lg:top-24 lg:h-fit">
+              <div className="p-6 rounded-2xl bg-card/50 border border-border/30 backdrop-blur-sm">
+                <div className="mb-6">
+                  <h3 className="font-display text-xl font-semibold mb-2 tracking-tight">
+                    Send us a Message
+                  </h3>
+                  <p className="text-muted-foreground text-sm font-light">
+                    Fill out the form below and we'll get back to you soon.
+                  </p>
+                </div>
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </div>
       </div>

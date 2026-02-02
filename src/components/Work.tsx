@@ -1,92 +1,324 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Code, Hospital, Palette, ShoppingCart, TrendingUp, X } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { useServiceFilter } from "@/contexts/ServiceFilterContext";
 
 const projects = [
   {
-    title: "Horizon Finance",
-    category: "Fintech Platform",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    color: "from-blue-500/20 to-cyan-500/20",
+    title: "The Perfume World",
+    category: " E-Commerce",
+    description: "Scalable e-commerce solution with modern UX",
+    image: "https://i.postimg.cc/gjt2YFcg/Gemini-Generated-Image-dkzrindkzrindkzr.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["Shopify", "React", "Payment"],
+    live:"https://www.theperfumeworld.co.uk",
   },
   {
-    title: "Bloom Studio",
-    category: "Brand Identity",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
-    color: "from-pink-500/20 to-orange-500/20",
-  },
-  {
-    title: "Nova Tech",
+    title: "Web Spark Builder",
     category: "Web Application",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    color: "from-violet-500/20 to-purple-500/20",
+    description: "Create Your Website With Ai",
+    image: "https://i.postimg.cc/htLRsRFL/Gemini-Generated-Image-kr76qwkr76qwkr76.png",
+    icon:Code,
+    color: "pink",
+    tags: ["React.js", "PHP", "Laravel","My-Sql"],
+    live:"https://www.websparkbuilders.com",
   },
   {
-    title: "Evergreen",
-    category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=600&fit=crop",
-    color: "from-green-500/20 to-emerald-500/20",
+    title: "NOMO",
+    category: "Shoping",
+    description: "Scalable Ring shoping Store for Android & IOS with modern UI/UX",
+    image: "https://i.postimg.cc/KcrR34Xg/ring-app-mockup-(Community)-2.png",
+    icon: Code,
+    color: "green",
+    tags: ["Flutter", "Figma", "Payment"],
+    
   },
+  {
+    title: "Human Resource Management",
+    category: "HRM",
+    description: "organizing, coordinating, and managing a company's employees. ",
+    image: "https://i.postimg.cc/vHwPzgGv/Gemini-Generated-Image-rn0ps4rn0ps4rn0p.png",
+    icon:Code,
+    color: "green",
+    tags: ["Laravel", "React", "PHP"],
+    live:"https://hrm.thefanservices.co.uk/",
+  },
+  {
+    title: "Mayfair Care Agency",
+    category: "Care Agency",
+    description: "we deliver elderly care, end of life care, and palliative care",
+    image: "https://i.postimg.cc/J0XRWygC/Gemini-Generated-Image-t4u020t4u020t4u0.png",
+    icon: Hospital,
+    color: "green",
+    tags: ["Shopify", "React", "Payment"],
+    live:"https://www.mayfaircareagency.co.uk/",
+  },
+  {
+    title: "Lady Bosom",
+    category: "Shoping",
+    description: "We provide high-quality breast support products, body tape solutions, and intimate wear designed for comfort, confidence, and style.",
+    image: "https://i.postimg.cc/L6rtHfkZ/Gemini-Generated-Image-ke5mepke5mepke5m.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["Shopify", "Payment"],
+    live:"https://ladybosom.com/",
+  },
+  {
+    title: "Hungry Tails",
+    category: "Pet Shop",
+    description: "High-quality pet food, treats, and accessories for dogs and cats",
+    image: "https://i.postimg.cc/28FfFfNL/Gemini-Generated-Image-g1828zg1828zg182.png",
+    icon: ShoppingCart,
+    color: "violet",
+    tags: ["Shopify", "Payment"],
+    live:"https://hungrytails.co.uk/?srsltid=AfmBOoqur4qVJqNSBacE9E0IZyouHFR53SHDC_mSW7vHi2fB9AJLVCRU",
+  },
+
+
+  
+  {
+    title: "Patty Buns",
+    category: "E-Commerce",
+    description: "Modern Social Media Posts for Fast Food",
+    image: "https://i.postimg.cc/ncV3g8Q7/Patty-Buns.png",
+    icon: Palette,
+    color: "green",
+    tags: ["Photoshop", "Canva", "Illustrator"],
+    live:"https://pattybunswarsop.co.uk/",
+  },
+  {
+    title: "Q & P Furniture",
+    category: "E-Commerce",
+    description: "Modern Furniture Store",
+    image: "https://i.postimg.cc/J4Gm3K23/Q-P-Furniture.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["Shopify", "React", "Payment"],
+    live:"https://www.qpfs.co.uk/",
+  },
+  {
+    title: "Hungry Tails",
+    category: "E-Commerce",
+    description: "Modern Social Media Posts for Pet Foods",
+    image: "https://i.postimg.cc/4N4WqChz/Hungry-Tails-FB.png",
+    icon: Palette,
+    color: "green",
+    tags: ["Photoshop", "Canva", "Illustrator"],
+    live:"https://hungrytails.co.uk/?srsltid=AfmBOoqxWTNOwAUmRQ_bFBxkDUDKhdqdL5bFelgQAK2IObGcsZ4MJFno/",
+  },
+  
 ];
 
+const colorClasses = {
+  blue: {
+    gradient: "from-blue-500/10 via-cyan-500/10 to-blue-500/10",
+    border: "border-blue-500/20",
+    hover: "hover:border-blue-500/40",
+    text: "text-blue-600",
+    bg: "bg-blue-500/5",
+  },
+  pink: {
+    gradient: "from-pink-500/10 via-rose-500/10 to-pink-500/10",
+    border: "border-pink-500/20",
+    hover: "hover:border-pink-500/40",
+    text: "text-pink-600",
+    bg: "bg-pink-500/5",
+  },
+  violet: {
+    gradient: "from-violet-500/10 via-purple-500/10 to-violet-500/10",
+    border: "border-violet-500/20",
+    hover: "hover:border-violet-500/40",
+    text: "text-violet-600",
+    bg: "bg-violet-500/5",
+  },
+  green: {
+    gradient: "from-green-500/10 via-emerald-500/10 to-green-500/10",
+    border: "border-green-500/20",
+    hover: "hover:border-green-500/40",
+    text: "text-green-600",
+    bg: "bg-green-500/5",
+  },
+};
+
+// Service to project category/tag mapping
+const serviceToFilter: Record<string, (project: typeof projects[0]) => boolean> = {
+  "Brand Strategy": (project) => ["E-Commerce", "Shoping", "Care Agency", "Pet Shop", "HRM"].includes(project.category.trim()),
+  "Web & App Development": (project) => ["Web Application", "HRM"].includes(project.category.trim()),
+  "Digital Marketing": (project) => ["E-Commerce", "Shoping", "Care Agency", "Pet Shop"].includes(project.category.trim()),
+  "UI/UX & Graphic Design": (project) => {
+    const designTags = ["Photoshop", "Canva", "Illustrator", "Figma"];
+    return project.tags.some(tag => designTags.includes(tag));
+  },
+  "Ecommerce": (project) => ["E-Commerce", "Shoping"].includes(project.category.trim()),
+  "Maintenance & Support": () => true, // Show all projects
+};
+
 const Work = () => {
+  const { selectedService, clearFilter } = useServiceFilter();
+  const [visibleProjects, setVisibleProjects] = useState(6);
+
+  // Filter projects based on selected service
+  const filteredProjects = useMemo(() => {
+    if (!selectedService) {
+      return projects;
+    }
+    const filterFn = serviceToFilter[selectedService];
+    if (!filterFn) {
+      return projects;
+    }
+    return projects.filter(filterFn);
+  }, [selectedService]);
+
+  // Reset visible projects when filter changes
+  useEffect(() => {
+    setVisibleProjects(6);
+  }, [selectedService]);
+
+  const projectsToShow = filteredProjects.slice(0, visibleProjects);
+  const hasMore = filteredProjects.length > visibleProjects;
+
+  const handleViewMore = () => {
+    setVisibleProjects(prev => prev + 3); // Show 3 more projects
+  };
+
   return (
-    <section id="work" className="py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent" />
+    <section id="work" className="py-20 relative overflow-hidden bg-white">
+      {/* Minimal Background - Reduced size */}
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/3 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[250px] h-[250px] bg-primary/3 rounded-full blur-3xl" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-          <div>
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-              Our Work
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold">
-              Featured <span className="text-gradient">Projects</span>
-            </h2>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Header - Reduced spacing */}
+        <div className="mb-12">
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <div className="flex-1">
+              <span className="text-primary font-normal text-xs tracking-wider uppercase mb-2 block font-light">
+                Our Work
+              </span>
+              <h2 className=" font-bold font-display text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 tracking-tight">
+                Featured <span className="text-gradient font-bold">Projects</span>
+              </h2>
+              <p className="text-muted-foreground text-sm md:text-base font-light leading-relaxed mb-8">
+                {selectedService 
+                  ? `Showing projects for "${selectedService}" (${filteredProjects.length} found)`
+                  : "Showcasing innovative solutions that drive business growth."
+                }
+              </p>
+            </div>
+            {selectedService && (
+              <button
+                onClick={clearFilter}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors text-sm font-medium mt-8"
+              >
+                <span>Clear Filter</span>
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
-          <a
-            href="#"
-            className="mt-6 md:mt-0 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-          >
-            View All Projects
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <a
-              key={project.title}
-              href="#"
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
+        {/* Projects Grid - Reduced heights */}
+        {filteredProjects.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-muted-foreground text-lg mb-4">No projects found for this service.</p>
+            <button
+              onClick={clearFilter}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors text-sm font-medium"
             >
-              {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              
-              {/* Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-60 group-hover:opacity-80 transition-opacity duration-500`} />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-              
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <span className="text-primary text-sm font-medium mb-2 block">
-                  {project.category}
-                </span>
-                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
-                  {project.title}
-                </h3>
-              </div>
+              <span>View All Projects</span>
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-5 ">
+            {projectsToShow.map((project, index) => {
+            const colors = colorClasses[project.color as keyof typeof colorClasses];
+            return (
+              <a
+                key={project.title}
+                href={project.live || "#"}
+                target={project.live ? "_blank" : undefined}
+                rel={project.live ? "noopener noreferrer" : undefined}
+                className="group relative block"
+              >
+                <div className={`relative rounded-xl overflow-hidden border ${colors.border} ${colors.hover} transition-all duration-500 hover:-translate-y-1 hover:shadow-lg backdrop-blur-sm`}>
+                  {/* Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  {/* Image Container - Reduced height */}
+                  <div className="relative h-48 md:h-56 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    {/* Icon Badge - Smaller */}
+                    <div className={`absolute top-3 left-3 w-8 h-8 rounded-lg ${colors.bg} flex items-center justify-center backdrop-blur-sm border ${colors.border} group-hover:scale-110 transition-transform duration-300`}>
+                      <project.icon className={`w-4 h-4 ${colors.text}`} />
+                    </div>
 
-              {/* Arrow */}
-              <div className="absolute top-6 right-6 w-12 h-12 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                <ArrowUpRight className="w-5 h-5 text-foreground" />
-              </div>
-            </a>
-          ))}
-        </div>
+                    {/* Hover Arrow - Smaller */}
+                    <div className="absolute top-3 right-3 w-7 h-7 rounded-md bg-background/90 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-border/30">
+                      <ArrowUpRight className="w-3 h-3 text-foreground" />
+                    </div>
+                  </div>
+
+                  {/* Content - Reduced padding */}
+                  <div className="p-4 md:p-5 relative z-10">
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div className="flex-1">
+                        <div className={`inline-block px-2 py-0.5 rounded ${colors.bg} mb-1.5`}>
+                          <span className={`text-xs font-medium ${colors.text}`}>{project.category}</span>
+                        </div>
+                        <h3 className="font-display text-lg md:text-xl font-semibold mb-1.5 group-hover:text-black transition-all duration-300">
+                          {project.title}
+                        </h3>
+                        <p className="text-muted-foreground text-xs font-light leading-relaxed mb-3 line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Tags - Smaller */}
+                    <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 rounded bg-muted/50 text-xs text-muted-foreground font-light border border-border/30"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* View Project Link */}
+                    {project.live && (
+                      <div className="flex items-center gap-1.5 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-xs font-medium">View project</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+          </div>
+        )}
+
+        {/* CTA - View More Button */}
+        {hasMore && (
+          <div className="text-center mt-10">
+            <button
+              onClick={handleViewMore}
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors group text-xs font-light cursor-pointer"
+            >
+              View More Projects
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
