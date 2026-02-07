@@ -32,7 +32,7 @@ const About = () => {
               We're a Team of <span className="text-gradient font-bold ">Passionate</span> Creators
             </h2>
             <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed">
-              Founded in 2021, TECHEXA has grown from a small studio into a full-service 
+              Founded in 2022, OMEXA has grown from a small studio into a full-service 
               digital agency. We combine creativity with technology to deliver exceptional results.
             </p>
           </div>
