@@ -32,9 +32,9 @@ const ContactForm = () => {
     
     try {
       // DIRECTLY USE YOUR EMAILJS CREDENTIALS
-      const serviceId = "service_038ydok";
-      const templateId = "template_aegw18o";
-      const publicKey = "WrHslXSqZSUWwAu6Y";
+      const serviceId = "service_bgqgh48";
+      const templateId = "template_7ju31qf";
+      const publicKey = "F1E9mV7nfEAKvFVwl";
       
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("EmailJS configuration is missing.");
@@ -52,7 +52,7 @@ const ContactForm = () => {
         // REMOVE THIS LINE - It's causing the issue
         // to_email: "contacttechexa@gmail.com", 
         // Add these instead:
-        to_name: "Techexa Team",
+        to_name: "Omexa Team",
         reply_to: data.email,
         date: new Date().toLocaleDateString(),
         time: new Date().toLocaleTimeString(),
@@ -93,7 +93,7 @@ const ContactForm = () => {
       
       // Fallback: Direct email link
       setTimeout(() => {
-        const mailtoLink = `mailto:contacttechexa@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\n\nMessage:\n${data.message}`)}`;
+        const mailtoLink = `mailto:omexasolution@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\n\nMessage:\n${data.message}`)}`;
         window.open(mailtoLink, '_blank');
       }, 1000);
     }

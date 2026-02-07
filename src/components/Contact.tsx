@@ -32,17 +32,17 @@ const Contact = () => {
                   { 
                     icon: Mail, 
                     label: "Email", 
-                    value: "contacttechexa@gmail.com",
+                    value: "omexasolution@gmail.com",
                   },
                   { 
                     icon: Phone, 
                     label: "Phone", 
-                    value: "+92-3355812911",
+                    value: "+92 340 5540344",
                   },
                   { 
                     icon: MapPin, 
                     label: "Location", 
-                    value: "B8 1QW, Poplar Dr, Saltley, Birmingham, United Kingdom.",
+                    value: "NASTP, Old Airport, Rawalpindi",
                   },
                 ].map((item) => (
                   <div

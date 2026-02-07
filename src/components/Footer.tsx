@@ -26,12 +26,11 @@ const Footer = () => {
       { name: "Partners", href: "#" },
     ],
     social: [
-      { icon: Video, href: "https://seller-uk.tiktok.com/homepage/", label: "Tiktok" },
-      { icon: Linkedin, href: "https://www.linkedin.com/company/techexa-digital-services-smc-private-limited/posts/?feedView=all/", label: "LinkedIn" },
+      { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-umar-461b313a8/", label: "LinkedIn" },
       { icon: Facebook, href: "https://www.facebook.com/techexadigitalservice/", label: "Facebook" },
-      { icon: Github, href: "#", label: "GitHub" },
+      { icon: Github, href: "https://github.com/bunnybunnyy", label: "GitHub" },
       { icon: Instagram, href: "#", label: "Instagram" },
-      { icon: Briefcase, href: "#", label: "Behance" },
+      { icon: Briefcase, href: "https://www.behance.net/hunnybunnyy", label: "Behance" },
     ],
   };
 
@@ -45,7 +44,7 @@ const Footer = () => {
         {/* Brand Section - Centered */}
         <div className="text-center mb-16">
         <a href="#" className="font-display text-5xl md:text-6xl font-bold text-[#093b79] inline-block mb-4 tracking-tighter hover:text-white hover:[-webkit-text-stroke:2px_#093b79] transition-all">
-            TECHEXA<span className="text-gradient animate-gradient">.</span>
+            OMEXA <span className="text-gradient animate-gradient">.</span>
           </a>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed font-light">
             Crafting exceptional digital experiences that drive business growth and innovation.
@@ -128,7 +127,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm font-light text-center md:text-left">
-            © {currentYear} TECHEXA DIGITAL AGENCY. All rights reserved.
+            © {currentYear} OMEXA SOLUTIONS. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors font-light hover:underline">

@@ -4,24 +4,44 @@ import { useServiceFilter } from "@/contexts/ServiceFilterContext";
 
 const projects = [
   {
-    title: "The Perfume World",
-    category: " E-Commerce",
-    description: "Scalable e-commerce solution with modern UX",
+    title: "Quick Code",
+    category: " Web Application",
+    description: "Real-time collaborative code editor with live sync, voice chat, and a built-in compiler",
     image: "https://i.postimg.cc/gjt2YFcg/Gemini-Generated-Image-dkzrindkzrindkzr.png",
-    icon: ShoppingCart,
-    color: "green",
-    tags: ["Shopify", "React", "Payment"],
-    live:"https://www.theperfumeworld.co.uk",
+    icon: Code,
+    color: "blue",
+    tags: ["Node", "React", "Express", "WEBRTC","Socket.io"],
+    live:"https://quickcodefy.netlify.app/",
   },
   {
     title: "Web Spark Builder",
     category: "Web Application",
-    description: "Create Your Website With Ai",
+    description: "Create Your Website With Ai Using Prompts",
     image: "https://i.postimg.cc/htLRsRFL/Gemini-Generated-Image-kr76qwkr76qwkr76.png",
     icon:Code,
     color: "pink",
     tags: ["React.js", "PHP", "Laravel","My-Sql"],
     live:"https://www.websparkbuilders.com",
+  },
+  {
+    title: "Vylax Clothing",
+    category: " E-Commerce",
+    description: "Modern streetwear brand offering trendy, comfortable apparel designed for everyday style and self-expression",
+    image: "https://i.postimg.cc/gjt2YFcg/Gemini-Generated-Image-dkzrindkzrindkzr.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["Woo Commerce", "React", "Wordpress", "API Integration"],
+    live:"https://vylaxclothing.com/",
+  },
+  {
+    title: "Solar System ",
+    category: " Web Application",
+    description: "web app that helps users estimate solar panel, battery, and inverter requirements based on their energy usage",
+    image: "https://i.postimg.cc/gjt2YFcg/Gemini-Generated-Image-dkzrindkzrindkzr.png",
+    icon: Code,
+    color: "green",
+    tags: ["Django", "React", "API Integration","Sql"],
+    live:"https://www.theperfumeworld.co.uk",
   },
   {
     title: "NOMO",
@@ -34,6 +54,16 @@ const projects = [
     
   },
   {
+    title: "Friends Traders",
+    category: "Repairing",
+    description: "Provides reliable washing machine and home appliance repair services",
+    image: "https://i.postimg.cc/KcrR34Xg/ring-app-mockup-(Community)-2.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["React", "API Integration"],
+    
+  },
+  {
     title: "Human Resource Management",
     category: "HRM",
     description: "organizing, coordinating, and managing a company's employees. ",
@@ -43,6 +73,17 @@ const projects = [
     tags: ["Laravel", "React", "PHP"],
     live:"https://hrm.thefanservices.co.uk/",
   },
+  {
+    title: "The Perfume World",
+    category: " E-Commerce",
+    description: "Scalable e-commerce solution with modern UX",
+    image: "https://i.postimg.cc/gjt2YFcg/Gemini-Generated-Image-dkzrindkzrindkzr.png",
+    icon: ShoppingCart,
+    color: "green",
+    tags: ["Shopify", "React", "Payment"],
+    live:"https://www.theperfumeworld.co.uk",
+  },
+  
   {
     title: "Mayfair Care Agency",
     category: "Care Agency",

@@ -49,9 +49,9 @@ const Navigation = () => {
           <img 
             src="/logo.png" 
             alt="Techexa Logo" 
-            className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            className="w-10 h-10 md:w-16 md:h-16 object-contain"
           />
-          TECHEXA<span className="text-blue-600">.</span>
+          OMEXA<span className="text-[#053477] font-bold">.</span>
         </a>
 
         {/* Desktop Navigation */}

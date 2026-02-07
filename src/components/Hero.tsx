@@ -112,7 +112,7 @@ const Hero = () => {
 
   // Counter animation effect
   useEffect(() => {
-    const targetValues = [150, 50, 4];
+    const targetValues = [90, 20, 3];
     const duration = 2000;
     const startTime = Date.now();
     

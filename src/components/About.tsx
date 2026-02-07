@@ -8,10 +8,10 @@ const highlights = [
 ];
 
 const stats = [
-  { value: "150+", label: "Projects" },
-  { value: "50+", label: "Clients" },
-  { value: "4+", label: "Years" },
-  { value: "100%", label: "Satisfaction" },
+  { value: "90+", label: "Projects" },
+  { value: "20+", label: "Clients" },
+  { value: "3+", label: "Years" },
+  { value: "97%", label: "Satisfaction" },
 ];
 
 const About = () => {
