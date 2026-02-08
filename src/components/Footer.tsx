@@ -27,9 +27,9 @@ const Footer = () => {
     ],
     social: [
       { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-umar-461b313a8/", label: "LinkedIn" },
-      { icon: Facebook, href: "https://www.facebook.com/techexadigitalservice/", label: "Facebook" },
+      { icon: Facebook, href: "https://www.facebook.com/share/18hDqegySA/", label: "Facebook" },
       { icon: Github, href: "https://github.com/bunnybunnyy", label: "GitHub" },
-      { icon: Instagram, href: "#", label: "Instagram" },
+      { icon: Instagram, href: "https://www.instagram.com/omexa_solution?igsh=MW5yNm5yOWQ0Y242YQ==", label: "Instagram" },
       { icon: Briefcase, href: "https://www.behance.net/hunnybunnyy", label: "Behance" },
     ],
   };
